@@ -177,7 +177,7 @@ typedef NS_ENUM(NSInteger, HKWMentionsState) {
                                 selectedColor:(UIColor *)selectedColor
                       selectedBackgroundColor:(UIColor *)selectedBackgroundColor {
     NSDictionary *unselectedAttributes = @{NSForegroundColorAttributeName: unselectedColor ?: [UIColor blueColor],
-                                           HKWRoundedRectBackgroundAttributeName: [HKWRoundedRectBackgroundAttributeValue valueWithBackgroundColor:selectedBackgroundColor ?: [UIColor clearColor]]};
+                                           HKWRoundedRectBackgroundAttributeName: [HKWRoundedRectBackgroundAttributeValue valueWithBackgroundColor:unselectedBackgroundColor ?: [UIColor clearColor]]};
     NSDictionary *selectedAttributes = @{NSForegroundColorAttributeName: selectedColor ?: [UIColor whiteColor],
                                          HKWRoundedRectBackgroundAttributeName: [HKWRoundedRectBackgroundAttributeValue valueWithBackgroundColor:selectedBackgroundColor ?: [UIColor blueColor]]};
     return [self mentionsPluginWithChooserMode:mode
