@@ -283,6 +283,18 @@ typedef NS_ENUM(NSInteger, HKWMentionsPluginState) {
                       selectedBackgroundColor:(UIColor *)selectedBackgroundColor;
 
 /*!
+ Instantiate a mentions plug-in with the specified chooser mode, control character set, search length,
+ a background color and text color for unselected mentions text, 4and a background color and text color for selected mentions text.
+*/
++ (instancetype)mentionsPluginWithChooserMode:(HKWMentionsChooserPositionMode)mode
+                            controlCharacters:(NSCharacterSet *)controlCharacterSet
+                                 searchLength:(NSInteger)searchLength
+                              unselectedColor:(UIColor *)unselectedColor
+                    unselectedBackgroundColor:(UIColor *)unselectedBackgroundColor
+                                selectedColor:(UIColor *)selectedColor
+                      selectedBackgroundColor:(UIColor *)selectedBackgroundColor;
+  
+/*!
  Instantiate a mentions plug-in with the specified chooser mode, control character set, search length, custom attributes
  to apply to unselected mentions, and custom attributes to apply to selected mentions.
  */

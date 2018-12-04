@@ -168,6 +168,24 @@ typedef NS_ENUM(NSInteger, HKWMentionsState) {
                                  selectedColor:[UIColor whiteColor]
                        selectedBackgroundColor:[UIColor blackColor]];
 }
+  
++ (instancetype)mentionsPluginWithChooserMode:(HKWMentionsChooserPositionMode)mode
+                            controlCharacters:(NSCharacterSet *)controlCharacterSet
+                                 searchLength:(NSInteger)searchLength
+                              unselectedColor:(UIColor *)unselectedColor
+                    unselectedBackgroundColor:(UIColor *)unselectedBackgroundColor
+                                selectedColor:(UIColor *)selectedColor
+                      selectedBackgroundColor:(UIColor *)selectedBackgroundColor {
+    NSDictionary *unselectedAttributes = @{NSForegroundColorAttributeName: unselectedColor ?: [UIColor blueColor],
+                                           HKWRoundedRectBackgroundAttributeName: [HKWRoundedRectBackgroundAttributeValue valueWithBackgroundColor:selectedBackgroundColor ?: [UIColor clearColor]]};
+    NSDictionary *selectedAttributes = @{NSForegroundColorAttributeName: selectedColor ?: [UIColor whiteColor],
+                                         HKWRoundedRectBackgroundAttributeName: [HKWRoundedRectBackgroundAttributeValue valueWithBackgroundColor:selectedBackgroundColor ?: [UIColor blueColor]]};
+    return [self mentionsPluginWithChooserMode:mode
+                             controlCharacters:controlCharacterSet
+                                  searchLength:searchLength
+                   unselectedMentionAttributes:unselectedAttributes
+                     selectedMentionAttributes:selectedAttributes];
+}
 
 + (instancetype)mentionsPluginWithChooserMode:(HKWMentionsChooserPositionMode)mode
                             controlCharacters:(NSCharacterSet *)controlCharacterSet
